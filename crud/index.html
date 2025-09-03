@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DietSync</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo-container">
+            <div class="logo-3d">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+            <h1 class="site-name">DietSync</h1>
+        </div>
+        <nav class="navigation">
+            <button class="nav-button active" data-page="home">
+                <i class="fas fa-home"></i> Início
+            </button>
+            <button class="nav-button" data-page="food-list">
+                <i class="fas fa-apple-alt"></i> Lista de Alimentos
+            </button>
+            <button class="nav-button" data-page="add-food">
+                <i class="fas fa-plus-circle"></i> Adicionar Alimento
+            <button class = "nav-button" data-page= "diet-plan">
+                <i class = "fas fa-clipboard-check"></i> Adicionar Dietas
+            </button>
+            </button>
+            <button class="nav-button" data-page="view-diets">
+                <i class="fas fa-list-alt"></i> Ver Dietas
+            </button>
+            <button class="nav-button" data-page="search-food">
+                <i class="fas fa-magnifying-glass"></i> Buscar Comida
+            </button>
+            <button class="nav-button" data-page="reset-aliments" id="btnResetFoods">
+                <i class="fas fa-arrows-rotate"></i> Resetar Alimentos
+            </button>
+            <button class="nav-button" data-page="delete-food">
+                <i class="fas fa-trash-alt"></i> Excluir Alimento
+            </button>
+        </nav>
+    </div>
+
+    <main class="content-area">
+        <div id="home" class="page-content active-page">
+            <h2 class="welcome-text">Seja Bem vindo ao DietSync</h2>
+            <div class="graficos">
+            <div id="grafico-donut"></div>
+            <div id="grafico-column"></div>
+            </div>
+        </div>
+        <div id="food-list" class="page-content">
+            <h3 class="form-title">Lista de Alimentos </h3>
+            <div class="list-container">
+                <div class="list-prot">
+                    <h4 class="title-prot" > Proteinas</h4>
+                    <ul class="food-list"  id="protein-list"></ul>
+                </div>
+                <div class="list-carb">
+                    <h4 class="title-carb"> Carboidratos</h4>
+                    <ul class="food-list" id="carbs-list"></ul>   
+                </div>
+                <div class="list-gord">
+                    <h4 class="title-gord"> Gorduras</h4>
+                    <ul class="food-list" id="fat-list"></ul>
+                </div>
+            </div>
+        </div>                
+        <div id="add-food" class="page-content">
+            <h3 class="form-title">Adicionar Alimento</h3>
+          <form class='form-add'id="form">
+                <h4 class="formadd-label">Nome do alimento:</h4> <input class="inputsadd" type="text" id="name" placeholder="maça"> <br>
+                 <h4 class="formadd-label">Carboidratos:</h4> <input class="inputsadd" type="text" id="carb" placeholder="13,8"> <br>
+                  <h4 class="formadd-label">Proteinas:</h4> <input class="inputsadd" type="text" id="prot" placeholder="0,3"> <br>
+                   <h4 class="formadd-label">Gorduras:</h4> <input class="inputsadd"type="text" id="gord" placeholder="0,2"> <br>
+                   <h4 class="formadd-label">Calorias:</h4> <input class="inputsadd" type="text" id="cal" placeholder="52"> <br>
+                   <button class="submitadd-button" type="button" id="btnSalvar">Adicionar</button>
+            </form>
+        </div>
+        <div id="diet-plan" class="page-content">
+            <div class="radio-group">
+             <input type="radio" name="refeicao" value="cafe-da-manha" id="cafe" checked>
+              <label for="cafe">Café da Manhã</label>
+
+                <input type="radio" name="refeicao" value="lanche-da-manha" id="lanche-manha">
+              <label for="lanche-manha">Lanche da Manhã</label>
+
+            <input type="radio" name="refeicao" value="almoco" id="almoco">
+             <label for="almoco">Almoço</label>
+
+            <input type="radio" name="refeicao" value="lanche-da-tarde" id="lanche-tarde">
+              <label for="lanche-tarde">Lanche da Tarde</label>
+
+            <input type="radio" name="refeicao" value="jantar" id="jantar">
+                <label for="jantar">Jantar</label>
+
+              <input type="radio" name="refeicao" value="ceia" id="ceia">
+                <label for="ceia">Ceia</label>
+        </div>
+         <div class="list-container-diet">
+               <div class="list-prot-diet">
+         <h4 class="title-prot-diet">Proteínas</h4>
+         <ul class="food-list-adddiet" id="protein-list-diet"></ul>
+        </div>
+
+        <div class="list-carb-diet">
+          <h4 class="title-carb-diet">Carboidratos</h4>
+            <ul class="food-list-adddiet" id="carbs-list-diet"></ul>   
+        </div>
+
+        <div class="list-gord-diet">
+          <h4 class="title-gord-diet">Gorduras</h4>
+            <ul class="food-list-adddiet" id="fat-list-diet"></ul>
+        </div>
+
+         </div>
+    </div>
+        <div id="view-diets" class="page-content">
+            <h3>Visualizar Dietas</h3>
+            <p>Tabela ou lista de dietas cadastradas aqui...</p>
+        </div>
+        <div id="search-food" class="page-content">
+            <h3 class="form-title">Buscar Comida</h3>
+            <form class="form-search-food" id="form-search-food">
+                <label for="input-search-food" class="form-title-search">Nome do Alimento</label>
+                <input class="inputs-search" type="text" id="input-search-food" placeholder="Ex: Peito de Frango">
+                <button class="submit-search-button" type="submit">Buscar</button>
+            </form>
+            <div id="food-details-container" class="food-details-container">
+
+            </div>
+        </div>
+        <div id="reset-aliments" class="page-content">
+            <h1>Os alimentos foram resetados.</h1>
+        </div>
+        <div id="delete-food" class="page-content">
+            <h3 class="form-title">Excluir Alimento</h3>
+            <form class="form-remove"> 
+                <h4 class="formremove-label">Nome do alimento:</h4> <input class="inputsremove" type="text" id="campo-excluir" placeholder="maça"> <br>
+                <button id='btnRemover' class="submitremove-button" type="submit">Excluir</button>
+            </form>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type='module' src="ui.js"></script>
+</body>
+</html>

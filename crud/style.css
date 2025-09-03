@@ -1,0 +1,782 @@
+:root {
+    --primary-orange: #157e02;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.sidebar {
+    width: 280px;
+    background-color: white;
+    height: 100vh;
+    padding: 30px 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+}
+
+/* Estilizando a logo 3D */
+.logo-3d {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px; /* Mais espaçamento para o nome */
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(20deg) rotateY(-40deg);
+}
+
+.face {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-orange);
+    border: 1px solid white;
+}
+/* Cores e posições para dar a ilusão de 3D */
+.front  { transform: translateZ(30px); }
+.back   { transform: rotateY(180deg) translateZ(30px); }
+.left   { transform: rotateY(-90deg) translateZ(30px); background-color: #157e02; }
+.right  { transform: rotateY(90deg) translateZ(30px); background-color: #157e02; }
+.top    { transform: rotateX(90deg) translateZ(30px); background-color: #ffd8a1; }
+.bottom { transform: rotateX(-90deg) translateZ(30px); background-color: #157e02; }
+
+.site-name {
+    font-size: 1.8em;
+    color: var(--primary-orange);
+    margin: 0;
+    font-weight: bold;
+}
+
+.navigation {
+    width: 100%;
+}
+
+.nav-button {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border: none;
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 1em;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-button i {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.nav-button:hover,
+.nav-button.active {
+    background-color: var(--primary-orange);
+    color: white;
+}
+
+.content-area {
+    flex-grow: 1;
+    padding: 40px;
+    position: relative;
+}
+
+.page-content {
+    display: none; /* Esconde todas as páginas por padrão */
+}
+
+.page-content.active-page {
+    display: block; /* Mostra apenas a página ativa */
+}
+
+.welcome-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5em;
+    color: var(--primary-orange);
+    text-align: center;
+    margin-top: 100px;
+}
+
+/*  configuração da parte de adicionar alimentos */
+
+.form-add {
+   background-color: #f7f9fc;
+    border-left: 2px solid #0056b3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: 50%;
+    height: min-content;
+}
+
+.formadd-label {
+    font-weight: 600px;
+    font-size: 17px;
+    color: #34495e;
+    margin: 5px;
+    display: block;
+}
+
+.inputsadd {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #c0ccda;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box
+}
+
+.inputsadd:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.submitadd-button {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box
+
+}
+
+.submitadd-button:hover {
+    background-color: #004085;
+}
+
+
+/* list alimentos */
+
+
+.delete-food{
+    background-color: white;
+    color: white;
+    border-radius: 50%;
+    border: 0px;
+    margin-left: 10px;
+    scale:70%
+}
+
+.list-container {
+    display: flex;            
+    gap: 40px;               
+    flex-wrap: wrap;         
+}
+
+.food-list{
+   list-style-type: none ;
+   margin: 0px;
+   padding: 0px;
+   display: flex;
+   flex-direction: column;
+   gap: 7px;
+   font-size: 16px;
+}
+
+
+.title-prot{
+    color:red;
+    margin-top:0;
+}
+
+.list-prot {
+   background-color: #f7f9fc;
+    border-left: 2px solid red;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    min-width: 200px;
+    width: max-content;
+    height: min-content;
+}
+
+.list-prot:hover {
+    .delete-food{
+        background-color: red;
+    color: white;
+    border-radius: 50%;
+    border: 0px;
+    margin-left: 10px;
+    scale:70%;
+    transition-duration:1s;
+    }
+    .delete-food:hover{
+    color: black;
+    transition-duration: 0s;
+}
+
+}
+
+.title-carb{
+    color:green;
+    margin-top:0;
+}
+
+.list-carb {
+   background-color: #f7f9fc;
+    border-left: 2px solid green;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    min-width: 200px;
+    width: max-content;
+    height: min-content;
+}
+
+.list-carb:hover {
+    .delete-food{
+        background-color: red;
+    color: white;
+    border-radius: 50%;
+    border: 0px;
+    margin-left: 10px;
+    scale:70%;
+    transition-duration:1s;
+    }  .delete-food:hover{
+    color: black;
+    transition-duration: 0s;
+}
+}
+
+.title-gord{
+    color:blue;
+    margin-top:0;
+}
+
+.list-gord {
+   background-color: #f7f9fc;
+    border-left: 2px solid blue;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+   min-width: 200px;
+    width: max-content;
+    height: min-content;
+}
+.list-gord:hover {
+    .delete-food{
+        background-color: red;
+    color: white;
+    border-radius: 50%;
+    border: 0px;
+    margin-left: 10px;
+    scale:70%;
+    transition-duration:1s;
+    } .delete-food:hover{
+    color: black;
+    transition-duration: 0s;
+}
+}
+
+/* buscar alimento */
+
+.list-container-diet {
+    display: flex;            
+    gap: 40px;               
+    flex-wrap: wrap;      
+    margin-top: 30px;   
+}
+
+.form-search-food{
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    height: min-content;
+    gap:10px
+}
+
+.form-title-search{
+    font-weight: 600px;
+    font-size: 17px;
+    color: #34495e;
+    margin: 5px;
+    display: block;
+}
+
+.inputs-search{
+    width: min-content;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border: 1px solid #c0ccda;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box
+}
+
+.inputs-search:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.submit-search-button {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    box-sizing: border-box
+
+}
+
+.submit-search-button:hover {
+    background-color: #004085;
+}
+
+.food-details-container h4{
+   font-size: 19px; 
+}
+
+
+.food-details-container ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* essa parte é a configuração da "Excluir Alimento" */
+
+.form-remove {
+   background-color: #f7f9fc;
+    border-left: 2px solid red;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: 20%;
+    height: min-content;
+}
+
+.formremove-label {
+    font-weight: 600px;
+    font-size: 17px;
+    color: #34495e;
+    margin: 5px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+
+.inputsremove {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #c0ccda;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box
+}
+
+.inputsremove:focus {
+    outline: none;
+}
+
+.submitremove-button {
+    background-color: rgb(243, 39, 39);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 98%;
+    margin-top: 10px;
+    box-sizing: border-box
+}
+
+.submitremove-button:hover {
+    background-color: rgb(187, 3, 3)
+    
+}
+
+/* adicionar dieta */
+
+   .radio-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: min-content;
+  }
+
+  /* Esconde o radio original */
+  .radio-group input[type="radio"] {
+    display: none;
+  }
+
+  /* Estilo base do botão */
+  .radio-group label {
+    padding: 25px 50px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    background: #f0f0f0;
+  }
+
+  /* Café da manhã */
+  #cafe:checked + label {
+    border-color: #E63946;
+    background: #E63946;
+    color: white;
+    opacity: 1;
+    -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+          animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  }
+
+   #lanche-manha:checked + label {
+    border-color: #FF9800;
+    background: #FF9800;
+    color: white;
+    opacity: 1;
+    -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+          animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  }
+
+
+  /* Almoço */
+  #almoco:checked + label {
+    border-color: #4CAF50;
+    background: #4CAF50;
+    color: white;
+    opacity: 1;
+     -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+          animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  }
+
+  #lanche-tarde:checked + label {
+    border-color: #FF9800;
+    background: #FF9800;
+    color: white;
+    opacity: 1;
+    -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+          animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  }
+
+  /* Jantar */
+  #jantar:checked + label {
+    border-color: #2196F3;
+    background: #2196F3;
+    color: white;
+    opacity: 1;
+     -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+          animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  }
+
+    #ceia:checked + label {
+    border-color: #1E2A38;
+    background: #1E2A38;
+    color: white;
+    opacity: 1;
+     -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+          animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+  }
+
+/* addDiet */
+
+.add-food-diet{
+    background-color: white;
+    color: white;
+    border-radius: 50%;
+    border: 0px;
+    margin-left: 10px;
+    scale:80%;
+    font-size: 17px;
+}
+
+.food-list-adddiet{
+   list-style-type: none ;
+   margin: 0px;
+   padding: 0px;
+   display: flex;
+   flex-direction: column;
+   gap: 7px;
+   font-size: 16px;
+}
+
+
+.title-prot-diet{
+    color:red;
+    margin-top:0;
+}
+
+.list-prot-diet {
+   background-color: #f7f9fc;
+    border-left: 2px solid red;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    min-width: 200px;
+    width: max-content;
+    height: min-content;
+}
+
+.list-prot-diet:hover {
+    .add-food-diet{
+        background-color: green;
+         color: white;
+        transition-duration:1s;
+    }
+    .add-food-diet:hover{
+    color: black;
+    transition-duration: 0s;
+}
+
+}
+
+.title-carb-diet{
+    color:green;
+    margin-top:0;
+}
+
+.list-carb-diet {
+   background-color: #f7f9fc;
+    border-left: 2px solid green;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    min-width: 200px;
+    width: max-content;
+    height: min-content;
+}
+.list-carb-diet:hover {
+    .add-food-diet{
+        background-color: green;
+         color: white;
+        transition-duration:1s;
+    }
+    .add-food-diet:hover{
+    color: black;
+    transition-duration: 0s;
+}
+
+}
+
+.title-gord-diet{
+    color:blue;
+    margin-top:0;
+}
+
+.list-gord-diet {
+   background-color: #f7f9fc;
+    border-left: 2px solid blue;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+   min-width: 200px;
+    width: max-content;
+    height: min-content;
+}
+.list-gord-diet:hover {
+    .add-food-diet{
+        background-color: green;
+         color: white;
+        transition-duration:1s;
+    }
+    .add-food-diet:hover{
+    color: black;
+    transition-duration: 0s;
+}
+
+}
+@-webkit-keyframes shadow-pop-tr {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+  100% {
+    /* botão vai para cima e direita */
+    -webkit-transform: translate(6px, -6px);
+            transform: translate(6px, -6px);
+
+    /* sombra projetada para baixo e esquerda */
+    box-shadow:
+      -2px 2px 8px rgba(0,0,0,0.15),
+      -4px 4px 12px rgba(0,0,0,0.12),
+      -6px 6px 16px rgba(0,0,0,0.10);
+  }
+}
+
+@keyframes shadow-pop-tr {
+  0% {
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+  100% {
+    /* movimento */
+    transform: translate(6px, -6px);
+
+    /* sombra para baixo/esquerda */
+    box-shadow:
+      -2px 2px 8px rgba(0,0,0,0.15),
+      -4px 4px 12px rgba(0,0,0,0.12),
+      -6px 6px 16px rgba(0,0,0,0.10);
+  }
+}
+
+/* Ver dietas */
+
+.refeicao-botao {
+    background-color: #f1f1f1;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: max-content;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    transition: background-color 0.4s;
+    border-radius: 8px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.refeicao-botao:hover{
+    color: white;
+}
+
+/* Adiciona uma cor de fundo quando o mouse passa por cima ou está ativo */
+.refeicao-botao.active {
+    color: white;
+}
+
+/* Símbolo de "+" para indicar que pode ser aberto */
+.refeicao-botao::after {
+    margin-left: 10px;
+    content: '+';
+    font-size: 20px;
+    font-weight: bold;
+    color: #777;
+}
+
+.refeicao-botao:hover:after {
+    color: white;
+}
+
+/* Muda o símbolo para "-" quando o menu está ativo (aberto) */
+.refeicao-botao.active::after{
+   color: white;
+    content: "–"; /* Use um traço mais adequado que o hífen */
+}
+
+.refeicao-botao.active:nth-of-type(1),.refeicao-botao:nth-of-type(1):hover {
+    background-color: #E63946; /* Cor para Café da Manhã */
+}
+.refeicao-botao.active:nth-of-type(2),.refeicao-botao:nth-of-type(2):hover{
+    background-color: #FF9800; /* Cor para Café da Manhã */
+}
+.refeicao-botao.active:nth-of-type(3),.refeicao-botao:nth-of-type(3):hover {
+    background-color: #4CAF50; /* Cor para Café da Manhã */
+}
+.refeicao-botao.active:nth-of-type(4),.refeicao-botao:nth-of-type(4):hover{
+    background-color: #FF9800; /* Cor para Café da Manhã */
+}
+.refeicao-botao.active:nth-of-type(5),.refeicao-botao:nth-of-type(5):hover{
+    background-color: #2196F3; /* Cor para Café da Manhã */
+}
+.refeicao-botao.active:nth-of-type(6),.refeicao-botao:nth-of-type(6):hover{
+    background-color: #1E2A38; /* Cor para Café da Manhã */
+}
+
+/* O painel com a lista de alimentos - escondido por padrão */
+.lista-alimentos {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0; /* Começa escondido (altura zero) */
+    overflow: hidden; /* Esconde o conteúdo que transborda */
+    transition: max-height 0.3s ease-out; /* Animação suave para abrir/fechar */
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    width: max-content;
+}
+
+.lista-alimentos:hover{
+    .delete-diet{
+        background-color: red;
+        transition: 1s;
+    }
+    .delete-diet:hover{
+        color: black;
+        transition: 0s;
+    }
+}
+
+/* Estilo para a lista dentro do painel */
+.lista-alimentos ul {
+    list-style-type: none;
+    padding: 10px 0 15px 10px;
+    margin: 0;
+}
+
+.delete-diet{
+    background-color: white;
+    color: white;
+    border-radius: 50%;
+    border: 0px;
+    margin-left: 10px;
+    scale:70%
+}
+
+
+/* graficos*/
+.graficos{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 200px;
+
+}
+
+#grafico-donut {
+  width: 450px;
+  
+}
+
+#grafico-column{
+width: 450px;
+}
